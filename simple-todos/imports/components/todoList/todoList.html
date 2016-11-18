@@ -1,0 +1,12 @@
+<header>
+  <h1>Todo List</h1>
+</header>
+ <input type="text" name="todo" placeholder="Enter your todo" ng-model="$ctrl.name" class="todoInput">
+
+ <button ng-click="$ctrl.add($ctrl.name)" class="addBtn"> Add me</button>
+<ul>
+  <li ng-repeat="task in $ctrl.tasks">
+ <span ng-click="$ctrl.edit(task)"> {{task.text}} </span> 
+  <span ng-click="$ctrl.delete(task)" style="float:right; cursor:pointer">X</span>
+  </li>
+</ul>
