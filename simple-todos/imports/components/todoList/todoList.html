@@ -1,12 +1,24 @@
 <header>
-  <h1>Todo List</h1>
+  <h1>Todo List ({{$ctrl.incrementCount}})</h1>
 </header>
+
+<label class="hide-completed">
+  <input type="checkbox" ng-model="$ctrl.hideCompleted">
+    Hide Completed Tasks
+</label>
+
+
+  <login-buttons></login-buttons>
+  
+  <div ng-show="$ctrl.currentUser"></div>
+
  <input type="text" name="todo" placeholder="Enter your todo" ng-model="$ctrl.name" class="todoInput">
 
  <button ng-click="$ctrl.add($ctrl.name)" class="addBtn"> Add me</button>
 <ul>
-  <li ng-repeat="task in $ctrl.tasks">
- <span ng-click="$ctrl.edit(task)"> {{task.text}} </span> 
+  <li ng-repeat="task in $ctrl.task">
+    
+ <span ng-click="$ctrl.edit(task)"> <strong>{{task.username}}</strong>  {{task.text}} </span> 
   <span ng-click="$ctrl.delete(task)" style="float:right; cursor:pointer">X</span>
   </li>
 </ul>
